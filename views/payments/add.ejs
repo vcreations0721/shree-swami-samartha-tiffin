@@ -1,0 +1,48 @@
+<%- include('../partials/header', { title: 'Add Payment' }) %>
+
+<h3>Add Payment</h3>
+
+<form method="post" action="/payments/add" class="row g-3">
+
+  <div class="col-md-6">
+    <select name="customer" class="form-select" required>
+      <option value="">Select Customer</option>
+      <% customers.forEach(c => { %>
+        <option value="<%= c._id %>"><%= c.name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <select name="paymentType" class="form-select" required>
+      <option value="">Payment Type</option>
+      <option>Daily</option>
+      <option>Monthly</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <input name="month" class="form-control" placeholder="Month (e.g. Feb-2026)">
+  </div>
+
+  <div class="col-md-6">
+    <input type="number" name="amount" class="form-control" placeholder="Amount (₹)" required>
+  </div>
+
+  <div class="col-md-6">
+    <select name="mode" class="form-select" required>
+      <option value="">Payment Mode</option>
+      <option>Cash</option>
+      <option>UPI</option>
+      <option>Bank</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-success">Save Payment</button>
+    <a href="/payments" class="btn btn-secondary">Back</a>
+  </div>
+
+</form>
+
+<%- include('../partials/footer') %>

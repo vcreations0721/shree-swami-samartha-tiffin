@@ -1,0 +1,33 @@
+<%- include('../partials/header', { title: 'Monthly Report' }) %>
+
+<h3>Monthly Report</h3>
+
+<form method="get" action="/reports/monthly" class="row g-3 mb-4">
+  <div class="col-md-4">
+    <input type="month" name="month" class="form-control" required>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-primary">View Report</button>
+  </div>
+</form>
+
+<% if (month) { %>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Total Income (₹)</th>
+        <th>Total Expense (₹)</th>
+        <th>Profit (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success">
+        <td><%= income %></td>
+        <td><%= expense %></td>
+        <td><%= income - expense %></td>
+      </tr>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,33 @@
+<%- include('../partials/header', { title: 'Expenses' }) %>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Expenses</h3>
+  <a href="/expenses/add" class="btn btn-primary">➕ Add Expense</a>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Amount (₹)</th>
+      <th>Paid By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% expenses.forEach(e => { %>
+      <tr>
+        <td><%= e.date.toDateString() %></td>
+        <td>
+          <span class="badge bg-secondary"><%= e.category %></span>
+        </td>
+        <td><%= e.description || '-' %></td>
+        <td><strong><%= e.amount %></strong></td>
+        <td><%= e.paidBy %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

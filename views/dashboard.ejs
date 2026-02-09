@@ -1,0 +1,32 @@
+<%- include('partials/header', { title: 'Dashboard' }) %>
+
+<h3>Dashboard</h3>
+
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th></th>
+      <th>Today (₹)</th>
+      <th>This Month (₹)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Income</strong></td>
+      <td><%= todayIncome %></td>
+      <td><%= monthIncome %></td>
+    </tr>
+    <tr>
+      <td><strong>Expenses</strong></td>
+      <td><%= todayExpense %></td>
+      <td><%= monthExpense %></td>
+    </tr>
+    <tr class="table-success">
+      <td><strong>Profit</strong></td>
+      <td><%= todayIncome - todayExpense %></td>
+      <td><%= monthIncome - monthExpense %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%- include('partials/footer') %>

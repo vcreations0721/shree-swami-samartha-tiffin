@@ -1,0 +1,42 @@
+<%- include('../partials/header', { title: 'Add Expense' }) %>
+
+<h3>Add Expense</h3>
+
+<form method="post" action="/expenses/add" class="row g-3">
+
+  <div class="col-md-6">
+    <select name="category" class="form-select" required>
+      <option value="">Select Category</option>
+      <option>Gas</option>
+      <option>Vegetables</option>
+      <option>Grocery</option>
+      <option>Delivery</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <select name="paidBy" class="form-select" required>
+      <option value="">Paid By</option>
+      <option>Cash</option>
+      <option>UPI</option>
+      <option>Bank</option>
+    </select>
+  </div>
+
+  <div class="col-md-12">
+    <input name="description" class="form-control" placeholder="Description (optional)">
+  </div>
+
+  <div class="col-md-6">
+    <input type="number" name="amount" class="form-control" placeholder="Amount (₹)" required>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-success">Save Expense</button>
+    <a href="/expenses" class="btn btn-secondary">Back</a>
+  </div>
+
+</form>
+
+<%- include('../partials/footer') %>

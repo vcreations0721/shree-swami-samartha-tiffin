@@ -1,0 +1,39 @@
+<%- include('../partials/header', { title: 'Add Customer' }) %>
+
+<h3>Add Customer</h3>
+
+<form method="post" action="/customers/add" class="row g-3">
+
+  <div class="col-md-6">
+    <input name="name" class="form-control" placeholder="Customer Name" required>
+  </div>
+
+  <div class="col-md-6">
+    <input name="mobile" class="form-control" placeholder="Mobile Number" required>
+  </div>
+
+  <div class="col-md-12">
+    <input name="address" class="form-control" placeholder="Address">
+  </div>
+
+  <div class="col-md-6">
+    <select name="tiffinType" class="form-select" required>
+      <option value="">Select Tiffin Type</option>
+      <option>Lunch</option>
+      <option>Dinner</option>
+      <option>Both</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <input type="number" name="monthlyRate" class="form-control" placeholder="Monthly Rate (₹)" required>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-success">Save Customer</button>
+    <a href="/customers" class="btn btn-secondary">Back</a>
+  </div>
+
+</form>
+
+<%- include('../partials/footer') %>
