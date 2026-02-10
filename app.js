@@ -22,29 +22,23 @@ app.use(
   })
 );
 
-// Routes
+// Routes (ALL routes before listen)
 app.use("/", require("./routes/auth"));
+app.use("/customers", require("./routes/customers"));
+app.use("/payments", require("./routes/payments"));
+app.use("/expenses", require("./routes/expenses"));
+app.use("/deposits", require("./routes/deposits"));
+app.use("/reports", require("./routes/reports"));
 
 // Default redirect
 app.get("/", (req, res) => {
   res.redirect("/login");
 });
 
+// ✅ Correct port handling for Railway
+const PORT = process.env.PORT || 3000;
+
 // Start server
-app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-app.use("/customers", require("./routes/customers"));
-
-app.use("/payments", require("./routes/payments"));
-
-app.use("/expenses", require("./routes/expenses"));
-
-app.use("/deposits", require("./routes/deposits"));
-
-app.use("/reports", require("./routes/reports"));
-
-
-
-
-
