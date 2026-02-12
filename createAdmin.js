@@ -1,14 +1,18 @@
 require("dotenv").config();
-const connectDB = require("./config/db");
+const mongoose = require("mongoose");
 const Admin = require("./models/Admin");
 
-connectDB();
+mongoose.connect(process.env.MONGO_URI)
+  .then(async () => {
+    await Admin.create({
+      username: "admin",
+      password: "admin123"  // plain text here
+    });
 
-(async () => {
-  await Admin.create({
-    username: "admin",
-    password: "admin123"
+    console.log("Admin created successfully");
+    process.exit();
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
   });
-  console.log("Admin created successfully");
-  process.exit();
-})();
