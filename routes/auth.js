@@ -65,11 +65,12 @@ router.get("/dashboard", auth, async (req, res) => {
   ]);
 
   res.render("dashboard", {
-    todayIncome: todayIncome[0]?.total || 0,
-    monthIncome: monthIncome[0]?.total || 0,
-    todayExpense: todayExpense[0]?.total || 0,
-    monthExpense: monthExpense[0]?.total || 0
-  });
+  title: "Dashboard",
+  todayIncome,
+  monthIncome,
+  todayExpense,
+  monthExpense
+});
 });
 
 

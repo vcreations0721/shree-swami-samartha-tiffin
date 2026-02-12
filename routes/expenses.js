@@ -7,12 +7,17 @@ const router = express.Router();
 // Expense list
 router.get("/", auth, async (req, res) => {
   const expenses = await Expense.find().sort({ date: -1 });
-  res.render("expenses/list", { expenses });
+  res.render("expenses/list", {
+  title: "Expenses",
+  expenses
+});
 });
 
 // Add expense form
 router.get("/add", auth, (req, res) => {
-  res.render("expenses/add");
+  res.render("expenses/add", {
+  title: "Expenses"
+});
 });
 
 // Save expense

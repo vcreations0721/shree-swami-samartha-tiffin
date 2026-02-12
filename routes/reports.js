@@ -34,10 +34,9 @@ router.get("/monthly", auth, async (req, res) => {
     : [];
 
   res.render("reports/monthly", {
-    month,
-    income: income[0]?.total || 0,
-    expense: expense[0]?.total || 0
-  });
+  title: "Reports",
+  data
+});
 });
 
 /* =========================
@@ -60,7 +59,10 @@ router.get("/customers", auth, async (req, res) => {
     });
   }
 
-  res.render("reports/customers", { report });
+  res.render("reports/customers", {
+  title: "Reports",
+  reportData
+});
 });
 
 module.exports = router;

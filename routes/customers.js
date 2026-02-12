@@ -7,12 +7,17 @@ const router = express.Router();
 // Customer list
 router.get("/", auth, async (req, res) => {
   const customers = await Customer.find().sort({ createdAt: -1 });
-  res.render("customers/list", { customers });
+  res.render("customers/list", {
+  title: "Customers",
+  customers
+});
 });
 
 // Add customer form
 router.get("/add", auth, (req, res) => {
-  res.render("customers/add");
+  res.render("customers/add", {
+  title: "Customers"
+});
 });
 
 // Save customer

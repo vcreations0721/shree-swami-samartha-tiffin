@@ -11,13 +11,18 @@ router.get("/", auth, async (req, res) => {
     .populate("customer")
     .sort({ date: -1 });
 
-  res.render("payments/list", { payments });
+  res.render("payments/list", {
+  title: "Payments",
+  payments
+});
 });
 
 // Add payment form
 router.get("/add", auth, async (req, res) => {
   const customers = await Customer.find({ status: "Active" });
-  res.render("payments/add", { customers });
+  res.render("payments/add", {
+  title: "Payments"
+});
 });
 
 // Save payment
