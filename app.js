@@ -26,11 +26,6 @@ app.use(
 );
 
 // Routes (ALL routes before listen)
-app.use((req, res, next) => {
-  res.locals.title = "Shree Swami Samartha Tiffin Service";
-  next();
-});
-
 app.use("/", require("./routes/auth"));
 app.use("/customers", require("./routes/customers"));
 app.use("/payments", require("./routes/payments"));
