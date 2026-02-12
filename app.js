@@ -1,4 +1,5 @@
 require("dotenv").config();
+const expressLayouts = require("express-ejs-layouts");
 const express = require("express");
 const session = require("express-session");
 const connectDB = require("./config/db");
@@ -10,6 +11,8 @@ connectDB();
 
 // View engine
 app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.set("layout", "layout");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
