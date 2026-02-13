@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Show login page
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { layout: false });
 });
 
 // Handle login
