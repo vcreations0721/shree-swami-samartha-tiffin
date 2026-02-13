@@ -20,10 +20,13 @@ router.get("/", auth, async (req, res) => {
 // Add payment form
 router.get("/add", auth, async (req, res) => {
   const customers = await Customer.find({ status: "Active" });
+
   res.render("payments/add", {
-  title: "Payments"
+    title: "Payments",
+    customers
+  });
 });
-});
+
 
 // Save payment
 router.post("/add", auth, async (req, res) => {
