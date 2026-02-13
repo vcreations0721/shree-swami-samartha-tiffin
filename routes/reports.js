@@ -10,7 +10,7 @@ const router = express.Router();
    MONTHLY REPORT
 ========================= */
 router.get("/monthly", auth, async (req, res) => {
-  const month = req.query.month; // e.g. 2026-02
+  const month = req.query.month;
 
   let startDate, endDate;
   if (month) {
@@ -33,11 +33,17 @@ router.get("/monthly", auth, async (req, res) => {
       ])
     : [];
 
+  const totalIncome = income[0]?.total || 0;
+  const totalExpense = expense[0]?.total || 0;
+
   res.render("reports/monthly", {
-  title: "Reports",
-  data
+    title: "Reports",
+    totalIncome,
+    totalExpense,
+    profit: totalIncome - totalExpense
+  });
 });
-});
+
 
 /* =========================
    CUSTOMER-WISE REPORT
@@ -61,7 +67,7 @@ router.get("/customers", auth, async (req, res) => {
 
   res.render("reports/customers", {
   title: "Reports",
-  reportData
+  reportData: report
 });
 });
 
