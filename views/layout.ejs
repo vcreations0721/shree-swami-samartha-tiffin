@@ -11,6 +11,7 @@
     html, body {
   margin: 0;
   padding: 0;
+  height:100%;
 }
 
 body {
@@ -21,18 +22,20 @@ body {
 
     /* ===== HEADER ===== */
     .topbar {
-      height: 60px;
-      background: linear-gradient(90deg, #ff9800, #ff5722);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      font-weight: 600;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-    }
+  height: 60px;
+  background: linear-gradient(90deg, #ff9800, #ff5722);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
 
     .brand-text {
       font-size: 18px;
@@ -51,16 +54,12 @@ body {
 
     /* ===== SIDEBAR ===== */
     .sidebar {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 230px;
-      height: calc(100vh - 60px);
-      background: #fff3e0;
-      border-right: 1px solid #ffe0b2;
-      padding-top: 15px;
-      transition: 0.3s;
-    }
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 230px;
+  height: calc(100vh - 60px);
+}
 
     .sidebar a {
       display: block;
@@ -86,10 +85,10 @@ body {
 
     /* ===== CONTENT ===== */
     .content {
-      margin-left: 230px;
-      margin-top: 60px;
-      padding: 25px;
-    }
+  margin-left: 230px;
+  padding: 25px;
+  padding-top: 80px;
+}
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
