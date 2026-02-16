@@ -63,12 +63,11 @@ router.get("/dashboard", auth, async (req, res) => {
     { $match: { date: { $gte: startOfMonth } } },
     { $group: { _id: null, total: { $sum: "$amount" } } }
   ]);
-  
-	const todayIncome = todayIncomeData[0]?.total || 0;
+  const todayIncome = todayIncomeData[0]?.total || 0;
 	const monthIncome = monthIncomeData[0]?.total || 0;
 	const todayExpense = todayExpenseData[0]?.total || 0;
 	const monthExpense = monthExpenseData[0]?.total || 0;
-
+	
   res.render("dashboard", {
   title: "Dashboard",
   todayIncome,
